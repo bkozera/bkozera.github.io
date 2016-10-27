@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Print Issue</title>
+  <style>
+    canvas {
+      display: block;
+      width: 1000px;
+      height: 1000px;
+    }
+  </style>
+  <script>
+
+    const NUMBER = 60;
+    const WIDTH = 1000;
+    const HEIGHT = 1000;
+
+    const fillCanvas = canvas => {
+      const ctx = canvas.getContext('2d');
+      const fontSize = 12;
+      ctx.font = fontSize + "px serif";
+      for (let i = fontSize; i < HEIGHT; i += fontSize)
+      ctx.fillText('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam id autem totam doloribus eum, delectus repellat. Modi quae voluptate vel.', 0,i);
+    }
+
+    const createCanvases = number => {
+      for (let i = 0; i < number; i++) {
+        const canvas = document.createElement('canvas');
+        canvas.width = WIDTH;
+        canvas.height = HEIGHT;
+        document.body.appendChild(canvas);
+      }
+    }
+
+    function init() {
+      createCanvases(NUMBER);
+      const canvases = Array.from(document.querySelectorAll('canvas'))
+      canvases.forEach(c => fillCanvas(c));
+    }
+
+
+  </script>
+</head>
+<body onload=init()></body>
+</html>
