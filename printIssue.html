@@ -6,8 +6,6 @@
   <style>
     canvas {
       display: block;
-      width: 1000px;
-      height: 1000px;
     }
   </style>
   <script>
@@ -16,15 +14,15 @@
     const WIDTH = 1000;
     const HEIGHT = 1000;
 
-    const fillCanvas = canvas => {
+    const fillCanvas = function(canvas) {
       const ctx = canvas.getContext('2d');
-      const fontSize = 12;
+      const fontSize = 10;
       ctx.font = fontSize + "px serif";
       for (let i = fontSize; i < HEIGHT; i += fontSize)
       ctx.fillText('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam id autem totam doloribus eum, delectus repellat. Modi quae voluptate vel.', 0,i);
     }
 
-    const createCanvases = number => {
+    const createCanvases = function(number) {
       for (let i = 0; i < number; i++) {
         const canvas = document.createElement('canvas');
         canvas.width = WIDTH;
